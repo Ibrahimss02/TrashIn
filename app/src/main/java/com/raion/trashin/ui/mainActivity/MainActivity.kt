@@ -1,4 +1,4 @@
-package com.raion.trashin.ui
+package com.raion.trashin.ui.mainActivity
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -13,6 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.raion.trashin.databinding.ActivityMainBinding
+import com.raion.trashin.ui.ProductResultFragment
 import java.lang.Exception
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

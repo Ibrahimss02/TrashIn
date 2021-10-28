@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.raion.trashin.R
 import com.raion.trashin.dto.Product
+import com.raion.trashin.ui.mainActivity.MainActivity
 
 class ProductResultFragment : BottomSheetDialogFragment() {
 
