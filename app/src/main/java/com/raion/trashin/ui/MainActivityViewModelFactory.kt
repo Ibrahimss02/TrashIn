@@ -1,4 +1,4 @@
-package com.raion.trashin
+package com.raion.trashin.ui
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

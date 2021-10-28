@@ -1,4 +1,4 @@
-package com.raion.trashin
+package com.raion.trashin.ui
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -6,10 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.raion.trashin.R
 import com.raion.trashin.dto.Product
 
 class ProductResultFragment : BottomSheetDialogFragment() {

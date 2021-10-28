@@ -1,4 +1,4 @@
-package com.raion.trashin
+package com.raion.trashin.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -12,7 +12,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.raion.trashin.databinding.ActivityMainBinding
 import java.lang.Exception
 import java.util.concurrent.ExecutorService
