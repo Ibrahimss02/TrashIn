@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1041083023068",
+    "project_id": "hackjam2021",
+    "storage_bucket": "hackjam2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041083023068:android:bbccde020f886122117e19",
+        "android_client_info": {
+          "package_name": "com.example.android.barcodescannerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041083023068-dlg846blrbpcd52dsmij91lv88irh02d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrI3_Blnf8R350jrCRveNzEyc0ZEeewBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041083023068-dlg846blrbpcd52dsmij91lv88irh02d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041083023068:android:457370a89f570ec3117e19",
+        "android_client_info": {
+          "package_name": "com.raion.trashin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041083023068-dlg846blrbpcd52dsmij91lv88irh02d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrI3_Blnf8R350jrCRveNzEyc0ZEeewBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041083023068-dlg846blrbpcd52dsmij91lv88irh02d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
