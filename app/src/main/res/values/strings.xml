@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">TrashIn</string>
     <string name="product_image">Product Image</string>
+    <string name="selamat_datang">Selamat datang Kembali!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
     <string name="simpan_produk">Simpan Produk</string>
-    <string name="selamat_datang">Selamat Datang</string>
+    <string name="selamat_datang_main_page">Selamat Datang</string>
     <string name="pahlawan_lingkungan">Pahlawan Lingkungan</string>
     <string name="jual_sampahmu_disini">Jual sampahmu disini</string>
     <string name="more">More</string>
