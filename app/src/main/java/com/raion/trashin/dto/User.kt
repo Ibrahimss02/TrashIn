@@ -5,5 +5,5 @@ data class User (
         val email : String = "",
         val username : String = "",
         val point : Int = 0,
-        val productListId : ArrayList<String>? = arrayListOf()
+        val productListId : ArrayList<String> = arrayListOf()
 )

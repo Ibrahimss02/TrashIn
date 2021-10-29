@@ -8,12 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.button.MaterialButton
 import com.raion.trashin.R
 import com.raion.trashin.dto.Product
 import com.raion.trashin.ui.mainActivity.MainActivity
 
 class ProductResultFragment : BottomSheetDialogFragment() {
+
+    private val _onClickAdd = MutableLiveData<String>()
+    val onClickAdd : LiveData<String>
+        get() = _onClickAdd
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +49,13 @@ class ProductResultFragment : BottomSheetDialogFragment() {
             text = product.barcodeId
         }
 
+        view.findViewById<MaterialButton>(R.id.addProductButton).apply {
+            setOnClickListener {
+                _onClickAdd.value = product.barcodeId
+                this@ProductResultFragment.dismiss()
+            }
+        }
+
         return view
     }
 
@@ -60,6 +74,7 @@ class ProductResultFragment : BottomSheetDialogFragment() {
         private const val ARG_PRODUCT = "arg_product"
 
         fun show(fragmentManager: FragmentManager, product : Product) {
+
             val productResultFragment = ProductResultFragment()
 
             productResultFragment.arguments = Bundle().apply {
@@ -69,7 +84,7 @@ class ProductResultFragment : BottomSheetDialogFragment() {
             productResultFragment.show(fragmentManager, TAG)
         }
 
-        fun dismiss(fragmentManager: FragmentManager) {
+        private fun dismiss(fragmentManager: FragmentManager) {
             (fragmentManager.findFragmentByTag(TAG) as ProductResultFragment?)?.dismiss()
         }
 

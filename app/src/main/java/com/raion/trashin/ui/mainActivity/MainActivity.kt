@@ -50,6 +50,19 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        viewModel.stopCameraPreview.observe(this, {
+            if (it) {
+                cameraProvider.unbindAll()
+            }
+        })
+
+        ProductResultFragment().onClickAdd.observe(this, {
+            if (it.isNotEmpty()) {
+                // TODO Add product data to firestore
+                viewModel.addProductToDatabase(it)
+            }
+        })
+
     }
 
     private fun allPermissionGranted() = REQUIRED_PERMISSION.all {
@@ -82,6 +95,7 @@ class MainActivity : AppCompatActivity() {
 
     fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(application)
+        viewModel.onCameraStarted()
 
         cameraProviderFuture.addListener({
             cameraProvider = cameraProviderFuture.get()

@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">TrashIn</string>
     <string name="product_image">Product Image</string>
+    <string name="simpan_produk">Simpan Produk</string>
+    <string name="selamat_datang">Selamat Datang</string>
+    <string name="pahlawan_lingkungan">Pahlawan Lingkungan</string>
+    <string name="jual_sampahmu_disini">Jual sampahmu disini</string>
+    <string name="more">More</string>
+    <string name="reedem">Redeem</string>
+    <string name="share">Share</string>
+    <string name="trashin_point">TrashIn Point</string>
+    <string name="jual_sampah_text">Tapi jangan cintamu ya, hehe</string>
+    <string name="produk_daur_ulang">Produk Daur Ulang</string>
+    <string name="artikel">Artikel</string>
+    <string name="article_sub_text">Perluas pengetahuanmu \nmengenai kelola sampah</string>
+    <string name="home">Home</string>
+    <string name="receipt">Receipt</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="scan_barcode">Scan Barcode</string>
+    <string name="scan_barcode_sub_text">Scan barcode</string>
+    <string name="scan_instruction">Arahkan kamera pada kode barcode</string>
 </resources>
