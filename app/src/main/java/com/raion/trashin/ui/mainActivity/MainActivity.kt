@@ -12,6 +12,9 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.BaseTransientBottomBar
+import com.google.android.material.snackbar.Snackbar
+import com.raion.trashin.R
 import com.raion.trashin.databinding.ActivityMainBinding
 import com.raion.trashin.ui.ProductResultFragment
 import java.lang.Exception
@@ -25,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var executor: ExecutorService
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var cameraProvider: ProcessCameraProvider
+
+    private var snackbarShowed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,6 +69,30 @@ class MainActivity : AppCompatActivity() {
             ProductResultFragment.dismiss(supportFragmentManager)
             onBackPressed()
         })
+
+        viewModel.noData.observe(this, {
+            if (!snackbarShowed){
+                Snackbar.make(findViewById(android.R.id.content), "Product with $it id's are not recognized. Try other product", Snackbar.LENGTH_LONG)
+                    .apply {
+                        view.setBackgroundColor(ContextCompat.getColor(this@MainActivity, R.color.snackbar_error_color))
+                    }
+                    .addCallback(
+                        object : Snackbar.Callback() {
+                            override fun onDismissed(transientBottomBar: Snackbar?, event: Int) {
+                                super.onDismissed(transientBottomBar, event)
+                                this@MainActivity.snackbarShowed = true
+                            }
+                        }
+                    )
+                    .show()
+
+            }
+        })
+    }
+
+    override fun onPause() {
+        super.onPause()
+        snackbarShowed = false
     }
 
     fun onProductAdded(productId : String) {

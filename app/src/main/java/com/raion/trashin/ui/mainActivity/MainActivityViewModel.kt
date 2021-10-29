@@ -45,6 +45,10 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     val onProductAdded : LiveData<String>
         get() = _onProductAdded
 
+    private val _noData = MutableLiveData<String>()
+    val noData : LiveData<String>
+        get() = _noData
+
     private lateinit var currentUser: User
 
     init {
@@ -78,13 +82,17 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
                     collectionRef.whereEqualTo(BARCODE_ID_FIELD, value)
                         .get()
                         .addOnSuccessListener { documents ->
-                            for (document in documents) {
-                                Log.d(TAG, "${document.id} -> ${document.data}")
-                                val product = document.toObject(Product::class.java)
+                            if (!documents.isEmpty){
+                                for (document in documents) {
+                                    Log.d(TAG, "${document.id} -> ${document.data}")
+                                    val product = document.toObject(Product::class.java)
 
-                                if (product.productName.isNotEmpty()) {
-                                    _product.value = product
+                                    if (product.productName.isNotEmpty()) {
+                                        _product.value = product
+                                    }
                                 }
+                            } else {
+                                _noData.value = value
                             }
                         }
                         .addOnFailureListener { e ->

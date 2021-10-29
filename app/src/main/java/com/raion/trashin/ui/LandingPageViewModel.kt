@@ -21,6 +21,11 @@ class LandingPageViewModel : ViewModel() {
     val currentUser : LiveData<User>
         get() = _currentUser
 
+    private val _onSignOutSuccess = MutableLiveData(false)
+    val onSignOutSuccess : LiveData<Boolean>
+        get() = _onSignOutSuccess
+
+
     init {
         fetchUserData()
     }
@@ -40,6 +45,15 @@ class LandingPageViewModel : ViewModel() {
                     Log.e(TAG, it.message, it)
                 }
         }
+    }
+
+    fun onLogOutClicked() {
+        auth.signOut()
+        _onSignOutSuccess.value = true
+    }
+
+    fun onNavigatedSignOut() {
+        _onSignOutSuccess.value = false
     }
 
     companion object {

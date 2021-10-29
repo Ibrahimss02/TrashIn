@@ -23,10 +23,6 @@ class LoginActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = this.viewModel
 
-        if (viewModel.currentUser() != null) {
-            startActivity(Intent(this, LandingPageActivity::class.java))
-            finish()
-        }
 
         viewModel.onLoginSuccess.observe(this, {
             if (it) {

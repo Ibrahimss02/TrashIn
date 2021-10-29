@@ -3,6 +3,7 @@ package com.raion.trashin.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.raion.trashin.databinding.ActivityLandingPageBinding
 import com.raion.trashin.ui.jualSampahActivity.JualSampahActivity
 import com.raion.trashin.ui.mainActivity.MainActivity
@@ -35,5 +36,14 @@ class LandingPageActivity : AppCompatActivity() {
             startActivity(Intent(this, JualSampahActivity::class.java))
             onPause()
         }
+
+        viewModel.onSignOutSuccess.observe(this, {
+            if (it) {
+                startActivity(Intent(this, SplashScreenActivity::class.java))
+                Toast.makeText(this, "Signed Out. Itu tombol buat sign out sementara wkwkw", Toast.LENGTH_SHORT).show()
+                viewModel.onNavigatedSignOut()
+                finish()
+            }
+        })
     }
 }

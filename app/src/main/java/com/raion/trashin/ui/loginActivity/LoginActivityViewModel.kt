@@ -42,8 +42,6 @@ class LoginActivityViewModel : ViewModel() {
         }
     }
 
-    fun currentUser() = auth.currentUser
-
     fun onUserNavigated() {
         _onLoginSuccess.value = false
     }

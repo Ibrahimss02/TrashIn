@@ -16,5 +16,6 @@
     <color name="secondaryDarkColor">#8ec1cc</color>
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#455a64</color>
+    <color name="snackbar_error_color">#F72400</color>
     
 </resources>
