@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TrashIn">
         <activity
+            android:name=".ui.jualSampahActivity.JualSampahActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.LandingPageActivity"
             android:exported="true">
             <intent-filter>
@@ -30,8 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.mainActivity.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
 
         <meta-data
             android:name="preloaded_fonts"

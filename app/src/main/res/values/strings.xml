@@ -23,4 +23,13 @@
     <string name="scan_barcode">Scan Barcode</string>
     <string name="scan_barcode_sub_text">Scan barcode</string>
     <string name="scan_instruction">Arahkan kamera pada kode barcode</string>
+    <string name="jual_sampah">Jual sampah</string>
+    <string name="sampah_yang_tersimpan">Sampah yang tersimpan</string>
+    <string name="jual">Jual</string>
+    <string name="total_berat">Total Berat</string>
+    <string name="harga_jual">Harga Jual</string>
+    <string name="null_weight">0 kg</string>
+    <string name="null_price">Rp 0</string>
+    <string name="password">Password</string>
+    <string name="masuk">Masuk</string>
 </resources>

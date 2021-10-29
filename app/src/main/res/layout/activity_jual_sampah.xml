@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.jualSampahActivity.JualSampahActivity"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="22dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="22dp" />
+
+        <ImageView
+            android:id="@+id/upButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_up"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jual_sampah"
+            android:textSize="16sp"
+            android:textColor="@color/primaryDarkColor"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toTopOf="@id/upButton"
+            app:layout_constraintBottom_toBottomOf="@id/upButton"
+            app:layout_constraintStart_toEndOf="@id/upButton"/>
+
+        <TextView
+            android:id="@+id/sampahTersimpanText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sampah_yang_tersimpan"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/upButton"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            android:layout_marginTop="20dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/sampahRv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toEndOf="@id/guidelineStart"
+            app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@id/sampahTersimpanText"
+            app:layout_constraintBottom_toTopOf="@id/separator"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="16dp"/>
+
+        <View
+            android:id="@+id/separator"
+            android:background="#C4C4C4"
+            android:layout_width = "0dp"
+            android:layout_height="1dip"
+            app:layout_constraintBottom_toTopOf="@id/totalBeratText"
+            app:layout_constraintStart_toStartOf="@id/sampahRv"
+            app:layout_constraintEnd_toEndOf="@id/sampahRv"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:layout_centerVertical ="true"
+            android:layout_alignParentTop="true"/>
+
+        <TextView
+            android:id="@+id/totalBeratText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/total_berat"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/totalBerat"
+            app:layout_constraintStart_toStartOf="@id/separator"/>
+
+        <TextView
+            android:id="@+id/totalBerat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/null_weight"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/totalHarga"
+            app:layout_constraintEnd_toEndOf="@id/separator"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:id="@+id/hargaJualText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/harga_jual"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/totalHarga"
+            app:layout_constraintStart_toStartOf="@id/totalBeratText"/>
+
+        <TextView
+            android:id="@+id/totalHarga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="@string/null_price"
+            tools:text="Rp 20.000"
+            android:textColor="@color/primaryDarkColor"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@id/jualButton"
+            app:layout_constraintEnd_toEndOf="@id/separator"
+            android:layout_marginBottom="12dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/jualButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/jual"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

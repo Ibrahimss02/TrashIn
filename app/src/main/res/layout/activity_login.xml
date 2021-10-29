@@ -17,51 +17,85 @@
 
         <ImageView
             android:id="@+id/image_logo"
-            android:layout_width="369px"
-            android:layout_height="369px"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@drawable/logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="99px"/>
+            android:layout_marginTop="38dp"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="531px"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/montserrat_semi_bold"
             android:text="@string/selamat_datang"
             android:textColor="@color/teal_700"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/image_logo" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
-            android:layout_width="633px"
-            android:layout_height="111px"
-            android:layout_marginTop="762px"
-            android:background="@drawable/stroke_box"
+            android:id="@+id/textInputLayoutEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="42dp"
+            app:hintTextColor="@color/primaryDarkColor"
+            android:hint="@string/email"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/textInputEditText"
-                android:layout_width="wrap_content"
+                android:id="@+id/textInputEditTextEmail"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="735px"
-                android:textSize="14sp"
-                android:textColor="@color/teal_700"
-                android:layout_marginStart="258px"
-                android:background="@color/white"/>
+                android:textSize="14sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginEnd="42dp"
+            app:hintTextColor="@color/primaryDarkColor"
+            android:hint="@string/password"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayoutEmail">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/textInputEditTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="14sp"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/textInputLayoutPassword"
+            app:layout_constraintEnd_toEndOf="@id/textInputLayoutPassword"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayoutPassword"
+            android:layout_marginTop="32dp"
+            android:text="@string/masuk"
+            android:textAllCaps="false"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
