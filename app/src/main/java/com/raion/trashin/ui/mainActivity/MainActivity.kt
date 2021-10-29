@@ -17,11 +17,12 @@ import com.raion.trashin.ui.ProductResultFragment
 import java.lang.Exception
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivityMainBinding
-    private lateinit var executor : ExecutorService
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var executor: ExecutorService
     private lateinit var viewModel: MainActivityViewModel
     private lateinit var cameraProvider: ProcessCameraProvider
 
@@ -33,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         executor = Executors.newSingleThreadExecutor()
 
         val mainActivityViewModelFactory = MainActivityViewModelFactory(application)
-        viewModel = ViewModelProvider(this, mainActivityViewModelFactory)[MainActivityViewModel::class.java]
+        viewModel =
+            ViewModelProvider(this, mainActivityViewModelFactory)[MainActivityViewModel::class.java]
 
         binding.lifecycleOwner = this
 
@@ -45,6 +47,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.product.observe(this, { product ->
             if (product != null) {
+                Log.d(TAG, "observed")
                 ProductResultFragment.show(supportFragmentManager, product)
                 cameraProvider.unbindAll()
             }
@@ -56,13 +59,16 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        ProductResultFragment().onClickAdd.observe(this, {
-            if (it.isNotEmpty()) {
-                // TODO Add product data to firestore
-                viewModel.addProductToDatabase(it)
-            }
+        viewModel.onProductAdded.observe(this, {
+            Toast.makeText(this, "Product with barcode $it added", Toast.LENGTH_SHORT).show()
+            ProductResultFragment.dismiss(supportFragmentManager)
+            onBackPressed()
         })
+    }
 
+    fun onProductAdded(productId : String) {
+        Log.d(TAG, "Freaking function is called with $productId")
+        viewModel.addProductToDatabase(productId)
     }
 
     private fun allPermissionGranted() = REQUIRED_PERMISSION.all {
@@ -87,7 +93,11 @@ class MainActivity : AppCompatActivity() {
             if (allPermissionGranted()) {
                 startCamera()
             } else {
-                Toast.makeText(this, "All permission must be granted in order to use the app", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "All permission must be granted in order to use the app",
+                    Toast.LENGTH_SHORT
+                ).show()
                 finish()
             }
         }
@@ -115,7 +125,7 @@ class MainActivity : AppCompatActivity() {
                 cameraProvider.bindToLifecycle(
                     this, cameraSelector, preview, analysisUseCase
                 )
-            } catch (e : Exception) {
+            } catch (e: Exception) {
                 Log.e(TAG, "Camera use case binding failed.", e)
             }
         }, ContextCompat.getMainExecutor(this))

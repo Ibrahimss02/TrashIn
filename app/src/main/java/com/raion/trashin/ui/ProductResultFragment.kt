@@ -51,8 +51,9 @@ class ProductResultFragment : BottomSheetDialogFragment() {
 
         view.findViewById<MaterialButton>(R.id.addProductButton).apply {
             setOnClickListener {
-                _onClickAdd.value = product.barcodeId
-                this@ProductResultFragment.dismiss()
+                activity?.let {
+                    (it as MainActivity).onProductAdded(product.barcodeId)
+                }
             }
         }
 
@@ -74,6 +75,7 @@ class ProductResultFragment : BottomSheetDialogFragment() {
         private const val ARG_PRODUCT = "arg_product"
 
         fun show(fragmentManager: FragmentManager, product : Product) {
+            Log.d(TAG, "Fragment Showed")
 
             val productResultFragment = ProductResultFragment()
 
@@ -84,7 +86,7 @@ class ProductResultFragment : BottomSheetDialogFragment() {
             productResultFragment.show(fragmentManager, TAG)
         }
 
-        private fun dismiss(fragmentManager: FragmentManager) {
+        fun dismiss(fragmentManager: FragmentManager) {
             (fragmentManager.findFragmentByTag(TAG) as ProductResultFragment?)?.dismiss()
         }
 

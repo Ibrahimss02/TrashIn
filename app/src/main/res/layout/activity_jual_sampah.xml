@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.raion.trashin.ui.jualSampahActivity.JualSampahViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -64,6 +70,7 @@
             app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
             app:layout_constraintTop_toBottomOf="@id/sampahTersimpanText"
             app:layout_constraintBottom_toTopOf="@id/separator"
+            listDataProduct="@{viewModel.productList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="16dp"/>
 
@@ -98,9 +105,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="@string/null_weight"
+            tools:text="@string/null_weight"
             android:textColor="@color/primaryDarkColor"
             android:textSize="16sp"
+            totalWeightFormat="@{viewModel.totalWeight}"
             app:layout_constraintBottom_toTopOf="@id/totalHarga"
             app:layout_constraintEnd_toEndOf="@id/separator"
             android:layout_marginBottom="4dp"/>
@@ -121,10 +129,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:text="@string/null_price"
             tools:text="Rp 20.000"
             android:textColor="@color/primaryDarkColor"
             android:textSize="16sp"
+            totalPriceFormat="@{viewModel.totalPrice}"
             app:layout_constraintBottom_toTopOf="@id/jualButton"
             app:layout_constraintEnd_toEndOf="@id/separator"
             android:layout_marginBottom="12dp"/>

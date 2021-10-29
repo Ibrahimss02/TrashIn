@@ -1,8 +1,10 @@
 package com.raion.trashin.ui.registerActivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.raion.trashin.databinding.ActivityRegisterBinding
+import com.raion.trashin.ui.LandingPageActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -19,5 +21,13 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.lifecycleOwner = this
         binding.viewModel = this.viewModel
+
+        viewModel.registerSuccess.observe(this, {
+            if (it) {
+                onBackPressed()
+                viewModel.onSuccessNavigated()
+                finish()
+            }
+        })
     }
 }

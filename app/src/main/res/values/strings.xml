@@ -30,6 +30,9 @@
     <string name="harga_jual">Harga Jual</string>
     <string name="null_weight">0 kg</string>
     <string name="null_price">Rp 0</string>
-    <string name="password">Password</string>
     <string name="masuk">Masuk</string>
+    <string name="number_one">1</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="konfirmasi_password">Konfirmasi Password</string>
+    <string name="no_account_ask">Belum punya akun?</string>
 </resources>

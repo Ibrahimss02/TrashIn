@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.raion.trashin.ui.LandingPageViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -163,15 +165,17 @@
                             android:fontFamily="@font/montserrat_bold"
                             android:textColor="#59A0AF"
                             android:textSize="20sp"
+                            tools:text="0.00"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/pointsText"
-                            android:text="0.00"/>
+                            totalPointFormat="@{viewModel.currentUser.point}"/>
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/jualSampahContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"

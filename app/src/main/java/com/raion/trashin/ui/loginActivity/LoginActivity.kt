@@ -1,8 +1,11 @@
 package com.raion.trashin.ui.loginActivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.raion.trashin.databinding.ActivityLoginBinding
+import com.raion.trashin.ui.LandingPageActivity
+import com.raion.trashin.ui.registerActivity.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -20,5 +23,22 @@ class LoginActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = this.viewModel
 
+        if (viewModel.currentUser() != null) {
+            startActivity(Intent(this, LandingPageActivity::class.java))
+            finish()
+        }
+
+        viewModel.onLoginSuccess.observe(this, {
+            if (it) {
+                startActivity(Intent(this, LandingPageActivity::class.java))
+                viewModel.onUserNavigated()
+                finish()
+            }
+        })
+
+        binding.noAccountText.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+            onPause()
+        }
     }
 }

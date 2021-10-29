@@ -41,6 +41,10 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
     private val db = Firebase.firestore
     private val collectionRef = db.collection(BARCODE_COLLECTION_PATH)
 
+    private val _onProductAdded = MutableLiveData<String>()
+    val onProductAdded : LiveData<String>
+        get() = _onProductAdded
+
     private lateinit var currentUser: User
 
     init {
@@ -92,11 +96,15 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         }
 
     fun addProductToDatabase(productId: String) {
+        Log.d(TAG, "Adding product $productId to database")
         viewModelScope.launch(Dispatchers.IO) {
             if (this@MainActivityViewModel::currentUser.isInitialized) {
                 currentUser.productListId.add(productId)
                 db.collection(USER_PATH).document(currentUser.id)
                     .set(currentUser, SetOptions.merge())
+                    .addOnSuccessListener {
+                        _onProductAdded.value = productId
+                    }
             }
         }
     }
