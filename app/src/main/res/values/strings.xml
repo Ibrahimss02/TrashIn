@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TrashIn</string>
     <string name="product_image">Product Image</string>
+    <string name="selamat_datang">Selamat datang Kembali!</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>
